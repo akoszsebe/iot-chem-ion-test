@@ -29,17 +29,17 @@ export class CalibrationComponent implements OnInit {
   }
 
   calibrate() {
-    if (this.currentLevel < 5) {
+    if (this.currentLevel < 4) {
 
       this.buttonDisabled = true;
       this.calibrationService.calibrateIonSensor(this.levels[this.currentLevel]).subscribe(response => {
         setTimeout(() => {
           this.buttonDisabled = false;
-          this.currentLevel = (this.currentLevel + 1) % 6;
+          this.currentLevel = (this.currentLevel + 1) % 5;
         }, 5000);
       });
     } else {
-      this.currentLevel = (this.currentLevel + 1) % 6;
+      this.currentLevel = (this.currentLevel + 1) % 5;
     }
   }
 }
