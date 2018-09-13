@@ -15,8 +15,8 @@ import {MatSnackBar} from '@angular/material';
 
 export class ReportsComponent implements OnInit {
 
-  @ViewChild('tempChart') tempChart: UIChart;
-  @ViewChild('ionChart') ionChart: UIChart;
+  @ViewChild('tempchart') tempChart: UIChart;
+  @ViewChild('ionchart') ionChart: UIChart;
 
   tempMinDate: Date;
   tempMaxDate: Date;
