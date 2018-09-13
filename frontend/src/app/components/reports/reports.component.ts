@@ -76,7 +76,7 @@ export class ReportsComponent implements OnInit {
             });
             me.tempChartData.datasets[0].data = newData;
             me.tempChartData.labels = newLabels;
-            tempChart.refresh();
+            me.tempChart.refresh();
           }
         },
         error => {
@@ -112,7 +112,7 @@ export class ReportsComponent implements OnInit {
             });
             me.ionChartData.datasets[0].data = newData;
             me.ionChartData.labels = newLabels;
-            ionChart.refresh();
+            me.ionChart.refresh();
           }
         },
         error => {
