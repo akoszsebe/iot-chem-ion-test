@@ -1,0 +1,12 @@
+h1 {
+  text-align: center;
+}
+
+.feedbackcard {
+  width: 400px;
+  margin: auto;
+}
+
+.textarea {
+  resize: none;
+}

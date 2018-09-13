@@ -1,0 +1,17 @@
+<mat-card class="approx-table-card">
+
+  <mat-card-title>
+    <h1>Calibration</h1>
+  </mat-card-title>
+
+  <p-steps id="steps" [model]="items" [(activeIndex)]="currentLevel" class="custom-steps"></p-steps>
+  <mat-card-content>
+    <mat-spinner id="spinner" *ngIf="buttonDisabled" class="spinner" color={{colors[currentLevel]}}></mat-spinner>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button id="calibrateButton" mat-raised-button *ngIf="!buttonDisabled" (click)="calibrate()">Calibrate
+      {{levels[currentLevel]}}
+    </button>
+  </mat-card-actions>
+</mat-card>

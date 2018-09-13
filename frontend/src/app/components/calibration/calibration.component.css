@@ -1,0 +1,14 @@
+.approx-table-card {
+  margin: 5% auto;
+  width: 50%;
+}
+
+
+.mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.spinner {
+  margin: auto;
+}

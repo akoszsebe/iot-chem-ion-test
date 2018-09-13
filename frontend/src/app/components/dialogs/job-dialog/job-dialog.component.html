@@ -1,0 +1,40 @@
+<mat-list>
+  <mat-list-item>
+    <label>Job end date: </label>
+  </mat-list-item>
+
+  <p-calendar [(ngModel)]="jobEndDate" dateformat="@" [minDate]="minJobEndDate"
+              showTime="true"></p-calendar>
+
+    <mat-form-field>
+      <mat-select placeholder = "Approximation value set" [(ngModel)]="selectedValues">
+        <mat-option *ngFor="let values of valuePairLists" [value]="values.id">
+          {{ values.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder = 'Interpolation' [(ngModel)]="selectedInterpolation">
+        <mat-option value = 'lagrange'>Lagrange</mat-option>
+        <mat-option>???</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+  <mat-input-container>
+        <textarea matInput
+                  rows="15" cols="100" placeholder="Add a description" [(ngModel)]="jobDescription"></textarea>
+  </mat-input-container>
+
+
+
+  <mat-list-item>
+    <button type="button" mat-raised-button id="jobOkButton"
+            (click)="dialogRef.close([jobEndDate, jobDescription, selectedValues, selectedInterpolation ])">OK
+    </button>
+    <button id = "jobCancelButton" type="button" mat-button 
+            (click)="dialogRef.close([null,null])">Cancel
+    </button>
+  </mat-list-item>
+</mat-list>

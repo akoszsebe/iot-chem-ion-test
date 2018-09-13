@@ -1,0 +1,96 @@
+.sensor-card {
+  width: 400px;
+  margin: 10px 0;
+}
+
+.mat-card-actions {
+  bottom: 5%;
+  right: 5%;
+  position: absolute;
+}
+
+p {
+  color: #dc655e;
+}
+
+.rpiId:hover {
+  background-color: darkgray;
+}
+
+
+.rPiList {
+  background: #FAFAFA;
+  display: flex;
+  width: 160px;
+  height: 90px;
+  position: absolute;
+  left: 201px;
+  top: 30px;
+  z-index: 1;
+  align-items: self-end;
+  box-shadow: 3px 2px 5px #888888
+}
+.rPiList ul {
+  display: inline;
+}
+
+.rPiList ul li {
+  list-style: none;
+  cursor: pointer;
+  padding-left: 30%;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+
+
+
+.connectedDevices {
+  cursor:pointer;
+  position: relative;
+  font-size: 11px;
+  left: 20px;
+  color: blueviolet;
+}
+
+.sensors-container {
+  display: grid;
+  justify-content: center;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+
+  .sensors-container {
+    display: block;
+  }
+
+  .sensor-card {
+    width: 90%;
+  }
+}
+
+.counter {
+  font-size: 14px !important;
+  color: #dc655e;
+}
+
+md-slide-toggle {
+  float: right;
+}
+
+table {
+  margin: auto;
+}
+
+.synctoggle {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.devicestatus {
+  float: right;
+}
+
+#firstRow, #secondRow {
+  display: flex;
+  flex-direction: row;
+}

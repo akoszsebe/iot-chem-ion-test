@@ -1,0 +1,15 @@
+<mat-list>
+
+  <mat-input-container >
+    <input id="intervalInput" matInput placeholder="Interval (s):" [(ngModel)]="interval">
+  </mat-input-container>
+
+  <mat-list-item>
+    <button id="okButton" type="button" mat-raised-button
+            (click)="dialogRef.close([interval])">OK
+    </button>
+    <button id="cancelButton" type="button" mat-button
+            (click)="dialogRef.close(null)">Cancel
+    </button>
+  </mat-list-item>
+</mat-list>

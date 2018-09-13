@@ -1,0 +1,25 @@
+p-chart {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.control {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+  div.chart {
+    margin: auto;
+    width: 80%;
+  }
+
+  .control {
+    display: flex;
+  }
+}
+
+
+

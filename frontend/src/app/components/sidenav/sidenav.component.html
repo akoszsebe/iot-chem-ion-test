@@ -1,0 +1,45 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav id="sidenav" #sidenav class="sidenav-menu">
+    <mat-list>
+      <mat-list-item>
+        <button id="closeMenu" mat-button (click)="sidenav.close()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <h3>IoTwithChem v2</h3>
+      </mat-list-item>
+      <mat-list-item *ngIf="loggedIn"><img class="profilepic" src="{{user.picUrl}}" alt="profilepic"></mat-list-item>
+      <mat-list-item *ngIf="loggedIn"><a mat-button> {{user.name}} </a></mat-list-item>
+      <mat-list-item *ngIf="loggedIn; then logout else login"></mat-list-item>
+      <ng-template #login>
+        <mat-list-item><a mat-button class="sidemenu-item" routerLink="/login" (click)="sidenav.close()">Login </a>
+        </mat-list-item>
+      </ng-template>
+      <ng-template #logout>
+        <mat-list-item><a mat-button class="sidemenu-item" href="https://iot-chem-ion-1.herokuapp.com/experiment/logout">Logout</a>
+        </mat-list-item>
+      </ng-template>
+      <mat-list-item><a id="experimentLink" mat-button class="sidemenu-item" routerLink="/experiment"
+                       (click)="sidenav.close()">Experiment</a></mat-list-item>
+      <mat-list-item><a id="ionapproximationLink" mat-button class="sidemenu-item" routerLink="/ionapproximation"
+                        (click)="sidenav.close()">Function approximation</a></mat-list-item>
+      <mat-list-item><a id="calibrationLink" mat-button class="sidemenu-item" routerLink="/calibration"
+                       (click)="sidenav.close()">Calibration</a></mat-list-item>
+      <mat-list-item><a id="reportsLink" mat-button class="sidemenu-item" routerLink="/reports" (click)="sidenav.close()">Reports</a>
+      </mat-list-item>
+      <mat-list-item><a id="feedbackLink" class="feedback" mat-button routerLink="/feedback" (click)="sidenav.close()">Leave
+        a feedback</a>
+      </mat-list-item>
+    </mat-list>
+
+  </mat-sidenav>
+
+  <div>
+    <button id="menuButton" mat-button *ngIf="loggedIn" (click)="sidenav.open()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

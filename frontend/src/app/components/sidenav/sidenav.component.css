@@ -1,0 +1,37 @@
+.sidenav-menu {
+  padding: 5px;
+  width: 50%;
+}
+
+@media screen and (min-width: 720px) {
+  .sidenav-menu {
+    padding: 5px;
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .sidenav-menu {
+    padding: 20px;
+    width: 20%;
+  }
+}
+
+#closeMenu {
+  float: right;
+}
+
+a.feedback {
+  color: #bb1d0c;
+  font-weight: bold;
+  font-style: italic;
+  text-align: left;
+}
+
+.profilepic {
+  margin-left: 10%;
+}
+
+.sidemenu-item{
+  text-align: left;
+}

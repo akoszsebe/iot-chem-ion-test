@@ -1,0 +1,8 @@
+.functionapprox-table-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.sendButton {
+    margin-top: 10px;
+}

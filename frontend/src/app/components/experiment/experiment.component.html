@@ -1,0 +1,88 @@
+<mat-slide-toggle class="synctoggle" [disabled]="!deviceConnected" [(ngModel)]="toggleChecked" (change)="toggleSync()">
+  {{syncLabel}}
+</mat-slide-toggle>
+<br>
+
+
+
+<p-messages [value]="msg"></p-messages>
+<div class="sensors-container">
+
+  <div id="firstRow">
+  <mat-card class="sensor-card">
+    <mat-card-content>
+      <p-progressBar [value]="progressBarValue"></p-progressBar>
+      <br>
+      <label>Job start date:</label>
+      <p> {{currentJob.jobStartDate.toLocaleString()}} </p><br>
+      <label>Job end date:</label>
+      <p> {{currentJob.jobEndDate.toLocaleString()}} </p><br>
+      <label>Remaining time:</label>
+      <count-down *ngIf="countdownDate!=null" class="counter" [text]="text" units="Days | Hours | Minutes | Seconds "
+                  end={{countdownDate}}></count-down>
+      <p *ngIf="countdownDate==null"> - </p>
+      <label>Job description: </label>
+      <p>{{currentJob.jobDescription}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button id="addJobButton" mat-button [disabled]="!deviceConnected" (click)="checkJob()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button id="stopJobButton" mat-button [disabled]="countdownDate==null" (click)="stopJob()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="sensor-card">
+    <mat-card-content>
+      <justgage [options]="optionsTempGauge" [max]="maxTemp" [value]="temp.tempvalue"></justgage>
+      <label> Set read interval: </label>
+      <p>{{currentJob.tempReadInt}} (sec)</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button id="tempSettingsButton" mat-button [disabled]="!deviceConnected" (click)="openTempSettings()">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  </div>
+
+  <div id="secondRow">
+  <mat-card class="sensor-card">
+    <mat-card-content>
+      <justgage [options] = "optionsCondGauge" [max] = "maxCond" [value]="conductivity.conductivityvalue"></justgage>
+      <label>Set read interval: </label>
+      <p id="conductivityReadInterval">{{currentJob.conductivityReadInt}} (sec)</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button id="conductivitySettingsButton" mat-button [disabled]="!deviceConnected" (click)="openConductivitySettings()">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="sensor-card">
+    <mat-card-content>
+      <justgage [options] = "optionsIONGauge" [max] = "maxIon" [value]="ion.ionvalue"></justgage>
+      <label>Set read interval: </label>
+      <p id="ionReadInterval">{{currentJob.ionReadInt}} (sec)</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button id="ionSettingsButton" mat-button [disabled]="!deviceConnected" (click)="openIonSettings()">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type='text/css'
+    />
+    <link href="https://rawgit.com/angular/material2-builds/master/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+</head>
+
+<body>
+    <mat-card>
+        <h3> Ion concentration approximation from Conductivity values </h3>
+        <div class="mat-form-field">
+            <form class="functionapprox-table-card">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Name" [(ngModel)]="approxName" name="approxName">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <textarea matInput placeholder="Leave a comment" [(ngModel)]="approxComment" name="approxComment"></textarea>
+                </mat-form-field>
+            </form>
+        </div>
+        <mat-table class="functionapprox-table-card" #table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="conductivity">
+                <mat-header-cell *matHeaderCellDef> Conductivity</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <mat-form-field floatPlaceholder="{{ row.editing ? 'float' : 'never'}}">
+                        <input matInput type="number" placeholder="Conductivity" [(ngModel)]="row.currentData.conductivity">
+                    </mat-form-field>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="ion">
+                <mat-header-cell *matHeaderCellDef> Ion concentration</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <mat-form-field floatPlaceholder="{{ row.editing ? 'float' : 'never'}}">
+                        <input matInput type="number" placeholder="Ion concentration" [(ngModel)]="row.currentData.ion">
+                    </mat-form-field>
+                </mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="actionsColumn">
+
+                <mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button color="accent" (click)="dataSource.createNew()">
+                        <i class="fa fa-plus mat-icon"></i>
+                    </button>
+                </mat-header-cell>
+
+                <mat-cell *matCellDef="let row">
+                    <button *ngIf="!row.editing" mat-icon-button color="primary" focusable="false" (click)="row.startEdit()">
+                        <i class="fa fa-pencil mat-icon"></i>
+                    </button>
+                    <button *ngIf="row.editing" mat-icon-button color="primary" focusable="false" (click)="row.confirmEditCreate()">
+                        <i class="fa fa-check mat-icon"></i>
+                    </button>
+                    <button mat-icon-button color="primary" focusable="false" (click)="row.cancelOrDelete()">
+                        <i class="fa fa-times mat-icon"></i>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-table>
+        <mat-card-actions>
+            <button mat-raised-button id="sendButton" (click)="sendValues()">Send data to server</button>
+            <h3> Saved approximation values </h3>
+        </mat-card-actions>
+        <mat-table class="functionapprox-table-card" [dataSource]="httpDataSource">
+            <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnsToDisplay" (click)="selectRow(row)" ></mat-row>
+
+
+            <ng-container matColumnDef="Name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.currentData.name}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Comment">
+                <mat-header-cell *matHeaderCellDef> Comment </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.currentData.comment}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Conductivity">
+                <mat-header-cell *matHeaderCellDef> Conductivity </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.currentData.conductivity}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="Ion">
+                <mat-header-cell *matHeaderCellDef> Ion </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.currentData.ion}} </mat-cell>
+            </ng-container>
+
+          <ng-container matColumnDef="Delete">
+            <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <button mat-icon-button color="primary" focusable="false" (click)="delete(row)">
+                <i class="fa fa-times mat-icon"></i>
+              </button>
+            </mat-cell>
+          </ng-container>
+        </mat-table>
+    </mat-card>
+</body>
