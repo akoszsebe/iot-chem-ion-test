@@ -218,11 +218,26 @@ module.exports = (app, passport, io) => {
     let sensorId;
     req.query.sensorid ? sensorId = req.query.sensorid : sensorId = '1';
     req.body.upinterval ? upInterval = req.body.upinterval : upInterval = '30000';
-    mq.sendMsgToRaspberry('ion:UpInterval:' + sensorId + ':' + upInterval);
+    mq.sendMsgToRaspberry('Ion:UpInterval:' + sensorId + ':' + upInterval);
     db.getJob((job) => {
       job.ionReadInt = upInterval;
       db.setJob(job, (newJob) => {
         res.json({ sensorSetValue: newJob.ionReadInt });
+      });
+    });
+  });
+
+
+  app.post('/api/device/condUploadInterval', [checkAuthorization, logAction], (req, res) => { //
+    let upInterval;
+    let sensorId;
+    req.query.sensorid ? sensorId = req.query.sensorid : sensorId = '1';
+    req.body.upinterval ? upInterval = req.body.upinterval : upInterval = '30000';
+    mq.sendMsgToRaspberry('Ion:ConUpInterval:' + sensorId + ':' + upInterval);
+    db.getJob((job) => {
+      job.conductivityReadInt = upInterval;
+      db.setJob(job, (newJob) => {
+        res.json({ sensorSetValue: newJob.conductivityReadInt });
       });
     });
   });

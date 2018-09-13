@@ -29,6 +29,8 @@ let jobSchema = new Schema({
   tempReadInt: String,
   ionValue: String,
   ionReadInt: String,
+  conductivityValue: String,
+  conductivityReadInt: String,
   usedInterpolation: String,
   usedValuePairs: String
 });

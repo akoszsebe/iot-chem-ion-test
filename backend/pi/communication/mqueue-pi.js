@@ -131,6 +131,9 @@ MQueuePI.prototype.MessageRouting = function (message) {
         case 'UpInterval':
           this.sensorValueContext.setIonUploadInterval(splitMessage[3]);
           break;
+        case 'ConUpInterval':
+          this.sensorValueContext.setIonUploadInterval(splitMessage[3]);
+          break;
       }
       break;
     case 'Pump':
