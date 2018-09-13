@@ -67,7 +67,7 @@ const phdevice = new PhDevice();
 const pumpdevice = new PumpDevice();
 const iondevice = new IonDevice();
 // Create new Sensor Values Context
-const SensorValueContext = require('../models/sensor-value-context');
+const SensorValueContext = require('./communication/sensor-value-context');
 const sensorValueContext = new SensorValueContext();
 
 // Create new Message Queue pi -> webservice
