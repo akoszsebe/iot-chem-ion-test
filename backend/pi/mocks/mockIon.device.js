@@ -32,14 +32,14 @@ IonDevice.prototype.calibrateHigh = function (value, callback) {
 /*
  * @return if calibration was Successful or not
  */
-IonDevice.prototype.calibrateDry = function (value, callback) {
+IonDevice.prototype.calibrateDry = function (callback) {
   return callback(true)
 };
 
 /*
  * @return if calibration was Successful or not
  */
-IonDevice.prototype.calibrateClear = function (value, callback) {
+IonDevice.prototype.calibrateClear = function (callback) {
   return callback(true)
 };
 

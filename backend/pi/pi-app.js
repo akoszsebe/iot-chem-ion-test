@@ -121,7 +121,7 @@ PiApp.prototype.ionCalibrateHigh = function () {
   const ion_cal_value = '10.00';
   setTimeout(function () {
     self.iondevice.calibrateHigh(ion_cal_value, function (callbackmsg) {
-      console.log('Calibration High on PhSensor was ' + callbackmsg);
+      console.log('Calibration High on IonSensor was ' + callbackmsg);
       self.messagequeue.sendMsgToWebServer('Ion:Calibrate:High:' + callbackmsg);
       //self.ionCheckTimeout = setTimeout(self.ionCheck.bind(self), self.ionCheckInterval)
     })
@@ -136,7 +136,7 @@ PiApp.prototype.ionCalibrateDry = function () {
   clearTimeout(self.phcheckTimeout);
   setTimeout(function () {
     self.iondevice.calibrateDry(function (callbackmsg) {
-      console.log('Calibration Mid on PhSensor was ' + callbackmsg);
+      console.log('Calibration Dry on IonSensor was ' + callbackmsg);
       self.messagequeue.sendMsgToWebServer('Ion:Calibrate:Dry:' + callbackmsg);
       //self.ionCheckTimeout = setTimeout(self.ionCheck.bind(self), self.ionCheckInterval)
     })
@@ -149,7 +149,7 @@ PiApp.prototype.ionCalibrateClear = function () {
   clearTimeout(self.phcheckTimeout);
   setTimeout(function () {
     self.iondevice.calibrateClear(function (callbackmsg) {
-      console.log('Calibration Mid on PhSensor was ' + callbackmsg);
+      console.log('Calibration Clear on IonSensor was ' + callbackmsg);
       self.messagequeue.sendMsgToWebServer('Ion:Calibrate:Clear:' + callbackmsg);
       //self.ionCheckTimeout = setTimeout(self.ionCheck.bind(self), self.ionCheckInterval)
     })

@@ -29,7 +29,7 @@ export class CalibrationComponent implements OnInit {
   }
 
   calibrate() {
-    if (this.currentLevel < 2) {
+    if (this.currentLevel < 4) {
 
       this.buttonDisabled = true;
       this.calibrationService.calibrateIonSensor(this.levels[this.currentLevel]).subscribe(response => {
