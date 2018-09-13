@@ -18,7 +18,7 @@ const IonDevice = module.exports = function () {
  * @returns the ionvalue
  */
 IonDevice.prototype.getIon = function (_callback) {
-    return _callback(Math.random()*1000)
+    return _callback(Math.random()*100000)
   
 };
 
