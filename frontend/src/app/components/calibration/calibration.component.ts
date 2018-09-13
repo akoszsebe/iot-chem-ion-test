@@ -35,11 +35,11 @@ export class CalibrationComponent implements OnInit {
       this.calibrationService.calibrateIonSensor(this.levels[this.currentLevel]).subscribe(response => {
         setTimeout(() => {
           this.buttonDisabled = false;
-          this.currentLevel = (this.currentLevel + 1) % 3;
+          this.currentLevel = (this.currentLevel + 1) % 6;
         }, 5000);
       });
     } else {
-      this.currentLevel = (this.currentLevel + 1) % 3;
+      this.currentLevel = (this.currentLevel + 1) % 6;
     }
   }
 }
