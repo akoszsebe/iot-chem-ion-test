@@ -5,7 +5,7 @@
                   showTime="true"></p-calendar>
       <p-calendar id="calendarTemp2" [(ngModel)]="tempEndDate" [minDate]="tempMinDate" [maxDate]="tempMaxDate"
                   showTime="true"></p-calendar>
-      <button id="loadTempButton" mat-button (click)="loadTempInInterval(tempchart)"> Load</button>
+      <button id="loadTempButton" mat-button (click)="loadTempInInterval()"> Load</button>
       <button id="exportTempButton" mat-button (click)="exportTempsInInterval()"> Export</button>
     </div>
     <div class="chart">
@@ -18,11 +18,11 @@
                   showTime="true"></p-calendar>
       <p-calendar id="calendarIon2" [(ngModel)]="ionEndDate" [minDate]="ionMinDate" [maxDate]="ionMaxDate"
                   showTime="true"></p-calendar>
-      <button id="loadIonButton" mat-button (click)="loadIonsInInterval(ionchart)"> Load</button>
+      <button id="loadIonButton" mat-button (click)="loadIonsInInterval()"> Load</button>
       <button id="exportIonButton" mat-button (click)="exportIonsInInterval()"> Export</button>
     </div>
     <div class="chart">
-      <p-chart id="ionChart" #phchart type="line" [data]="ionChartData"></p-chart>
+      <p-chart id="ionChart" #ionchart type="line" [data]="ionChartData"></p-chart>
     </div>
   </mat-tab>
 </mat-tab-group>

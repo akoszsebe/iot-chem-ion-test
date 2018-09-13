@@ -16,6 +16,7 @@ import {MatSnackBar} from '@angular/material';
 export class ReportsComponent implements OnInit {
 
   @ViewChild('tempchart') tempChart: UIChart;
+
   @ViewChild('ionchart') ionChart: UIChart;
 
   tempMinDate: Date;
@@ -56,7 +57,7 @@ export class ReportsComponent implements OnInit {
   }
 
 
-  loadTempInInterval(tempChart: UIChart) {
+  loadTempInInterval() {
     if (this.tempStartDate == null || this.tempEndDate == null) {
       return;
     }
@@ -92,7 +93,7 @@ export class ReportsComponent implements OnInit {
     this.ionService.exportIonsInInterval(this.ionStartDate.getTime(), this.ionEndDate.getTime());
   }
 
-  loadIonsInInterval(ionChart: UIChart) {
+  loadIonsInInterval() {
     if (this.ionStartDate == null || this.ionEndDate == null) {
       return;
     }
