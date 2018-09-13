@@ -14,7 +14,7 @@ export class CalibrationComponent implements OnInit {
   colors = ['warn', 'primary'];
   mode = 'indeterminate';
   currentLevel: number;
-  levels = ['Low', 'High', 'again'];
+  levels = ['Clear', 'Dry','Low', 'High', 'again'];
   buttonDisabled = false;
 
   items: MenuItem[];
@@ -25,7 +25,7 @@ export class CalibrationComponent implements OnInit {
 
   ngOnInit() {
     this.currentLevel = 0;
-    this.items = [{label: 'Low'},  {label: 'High'}, {label: 'Done'}];
+    this.items = [{label: 'Clear'}, {label: 'Dry'}, {label: 'Low'},  {label: 'High'}, {label: 'Done'}];
   }
 
   calibrate() {
