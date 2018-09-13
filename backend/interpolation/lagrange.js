@@ -27,6 +27,7 @@ VP.prototype.interpolate = function(f,fi,x,eps){
         {
             return Q[i][i];
         }
+        else return 0;
     }
 
 }

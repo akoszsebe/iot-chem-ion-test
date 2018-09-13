@@ -283,7 +283,7 @@ export class ExperimentComponent implements OnInit, OnDestroy {
                   error => {
                       console.log(error);
                   });
-      }, 1000);
+        }, this.currentJob.conductivityReadInt * 1000);
     }
 
     openTempSettings() {
