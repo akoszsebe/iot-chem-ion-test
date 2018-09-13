@@ -5,7 +5,7 @@
                   showTime="true"></p-calendar>
       <p-calendar id="calendarTemp2" [(ngModel)]="tempEndDate" [minDate]="tempMinDate" [maxDate]="tempMaxDate"
                   showTime="true"></p-calendar>
-      <button id="loadTempButton" mat-button (click)="loadTempInInterval(tempchart)"> Load</button>
+      <button id="loadTempButton" mat-button (click)="loadTempInInterval(tempChart)"> Load</button>
       <button id="exportTempButton" mat-button (click)="exportTempsInInterval()"> Export</button>
     </div>
     <div class="chart">

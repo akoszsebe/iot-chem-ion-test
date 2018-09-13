@@ -15,8 +15,8 @@ import {MatSnackBar} from '@angular/material';
 
 export class ReportsComponent implements OnInit {
 
-  @ViewChild('tempchart') tempChart: UIChart;
-  @ViewChild('ionchart') ionChart: UIChart;
+  @ViewChild('tempChart') tempChart: UIChart;
+  @ViewChild('ionChart') ionChart: UIChart;
 
   tempMinDate: Date;
   tempMaxDate: Date;
@@ -76,7 +76,7 @@ export class ReportsComponent implements OnInit {
             });
             me.tempChartData.datasets[0].data = newData;
             me.tempChartData.labels = newLabels;
-            me.tempChart.refresh();
+            tempChart.refresh();
           }
         },
         error => {
@@ -112,7 +112,7 @@ export class ReportsComponent implements OnInit {
             });
             me.ionChartData.datasets[0].data = newData;
             me.ionChartData.labels = newLabels;
-            me.ionChart.refresh();
+            ionChart.refresh();
           }
         },
         error => {
