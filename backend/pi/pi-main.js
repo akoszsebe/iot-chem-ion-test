@@ -62,9 +62,9 @@ else {
 }
 
 const temperaturedevice = new TemperatureDevice;
-const heatsourcedevice = new HeatSourceDevice();
+//const heatsourcedevice = new HeatSourceDevice();
 const phdevice = new PhDevice();
-const pumpdevice = new PumpDevice();
+//const pumpdevice = new PumpDevice();
 const iondevice = new IonDevice();
 // Create new Sensor Values Context
 const SensorValueContext = require('./communication/sensor-value-context');
@@ -86,9 +86,9 @@ piwatcher.startWatcher();
 // Initialize the pi app
 piapp.init();
 
-const connectionChecker = new ConnectionChecker(30000, heatsourcedevice, pumpdevice, mQueuePi);
+//const connectionChecker = new ConnectionChecker(30000, heatsourcedevice, pumpdevice, mQueuePi);
 
-connectionChecker.startChecking();
+//connectionChecker.startChecking();
 
 
 

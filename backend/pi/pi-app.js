@@ -103,7 +103,7 @@ PiApp.prototype.ionCheck = function()
 PiApp.prototype.ionCalibrateLow = function () {
   const self = this;
   clearTimeout(self.ionCheckTimeout);
-  const ion_cal_value = '4.00';
+  const ion_cal_value = '12880';
   setTimeout(function () {
     self.iondevice.calibrateLow(ion_cal_value, function (callbackmsg) {
       console.log('Calibration Low on IonSensor was ' + callbackmsg);
@@ -118,7 +118,7 @@ PiApp.prototype.ionCalibrateLow = function () {
 PiApp.prototype.ionCalibrateHigh = function () {
   const self = this;
   clearTimeout(self.ionCheckTimeout);
-  const ion_cal_value = '10.00';
+  const ion_cal_value = '80000';
   setTimeout(function () {
     self.iondevice.calibrateHigh(ion_cal_value, function (callbackmsg) {
       console.log('Calibration High on IonSensor was ' + callbackmsg);
