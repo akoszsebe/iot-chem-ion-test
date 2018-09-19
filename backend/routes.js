@@ -94,13 +94,18 @@ module.exports = (app, passport, io) => {
     let sensorId;
     req.query.sensorid ? sensorId = req.query.sensorid : sensorId = '1';
     db.getIon(sensorId, (returndata) => {
-      var seged = {
-        raspberryid: returndata.raspberryid,
-        sensorid: returndata.sensorId,
-        conductivityvalue: returndata.ionvalue,
-        conductivitydate: returndata.iondate
-      };
-      res.json(seged)
+      if (returndata != null) {   
+        var seged = {
+          raspberryid: returndata.raspberryid,
+          sensorid: returndata.sensorId,
+          conductivityvalue: returndata.ionvalue,
+          conductivitydate: returndata.iondate
+        };
+        res.json(seged)
+      }
+      else {
+        res.json(null)
+      }
     })
   });
 
