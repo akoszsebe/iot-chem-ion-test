@@ -80,7 +80,7 @@ module.exports = (app, passport, io) => {
       db.getIon(sensorId, (returndata) => {
         var conductivity = parseFloat(returndata.ionvalue);
         var ion;
-        ion = lagrange.interpolate(valuePair.conductivity, valuePair.ion, conductivity, 0.01);
+        ion = lagrange.interpolate(valuePair.conductivity, valuePair.ion, conductivity, 1);
         returndata.ionvalue = "" + ion;
         console.log(ion + " ion value----------------------------------------------------------------");
         console.log(valuePair.conductivity + " conductivity pairs----------------------------------------------------------------");
